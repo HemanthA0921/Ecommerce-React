@@ -1,0 +1,14 @@
+.component {
+    height: 3vh;
+    position: relative;
+    width: 5vw;
+    display: flex;
+    justify-content: center;
+}
+
+.component .vector {
+    position: absolute;
+    display: flex;
+    height: 100%;
+    width: 100%;
+}

@@ -1,0 +1,13 @@
+.wishlist {
+    position: relative;
+    height: 32px;
+    width: 26px;
+    left: 2vw;
+    margin-left: 1vw;
+}
+
+.wishlist .vector {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}

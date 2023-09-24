@@ -1,0 +1,12 @@
+.MyAccount {
+    position: relative;
+    height: 32px;
+    width: 26px;
+    left: 2vw;
+}
+
+.MyAccount .vector {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}

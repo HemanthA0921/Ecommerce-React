@@ -1,0 +1,26 @@
+.search-component-set .frame {
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    height: 4.5vh;
+    width: 20vw;
+    background-color: rgb(220, 228, 236);
+    border: 1px solid rgb(53, 53, 125);
+    border-radius: 20px;
+}
+
+.search-component-set .text-wrapper {
+    color: rgba(0, 0, 0, 1);
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    opacity: 0.5;
+    position: relative;
+    white-space: nowrap;
+    margin-right: 5vh;
+    width: 35vw;
+}

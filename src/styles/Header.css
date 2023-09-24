@@ -1,0 +1,74 @@
+.header {
+    position: relative;
+}
+
+.header .div {
+    color: rgba(0, 0, 0, 1);
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0px;
+    line-height: 24px;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+}
+
+.header .home-2 {
+    color: rgba(0, 0, 0, 1);
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.header.home {
+    height: 24px;
+    width: 48px;
+}
+
+.header.header-contact-hover {
+    align-items: center;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.header.about {
+    height: 24px;
+    width: 52px;
+}
+
+.header.header-home-hover {
+    align-items: center;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.header.contact {
+    height: 24px;
+    width: 67px;
+}
+
+.header.sign-up {
+    height: 24px;
+    width: 68px;
+}
+
+.header.header-about-hover {
+    align-items: center;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.header.header-sign-up-hover {
+    align-items: center;
+    display: inline-flex;
+    flex-direction: column;
+}

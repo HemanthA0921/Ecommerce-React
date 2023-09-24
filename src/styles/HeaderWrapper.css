@@ -1,0 +1,66 @@
+.header-wrapper {
+    align-items: center;
+    display: inline-flex;
+    position: relative;
+    margin: 4vh 5vh 4vh 5vh;
+}
+
+.header-wrapper .frame-2 {
+    padding: .8vh;
+    height: fit-content;
+    align-items: flex-start;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 23vh;
+    position: relative;
+}
+
+.header-wrapper .frame-3 {
+    align-items: flex-start;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 52px;
+    position: relative;
+}
+
+.header-wrapper .design-component-instance-node {
+    flex: 0 0 auto !important;
+}
+
+.header-wrapper .frame-4 {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    /* gap: 1vw; */
+    position: relative;
+    width: 52vw;
+    margin-left: 3vw;
+}
+
+.header-wrapper .frame-5 {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 2.7vw;
+    justify-content: center;
+    position: relative;
+}
+
+.header-wrapper .icon-instance-node {
+    height: 32px !important;
+    position: relative !important;
+    width: 32px !important;
+}
+
+.header-wrapper .cart-with-buy {
+    position: relative !important;
+}
+
+.icon-text {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 1);
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "Poppins-Regular", Helvetica;
+    font-style: normal;
+}
