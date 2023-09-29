@@ -4,7 +4,7 @@
     flex: 0 0 auto;
     z-index: 0;
     width: 30%;
-    margin-left: 2vw;
+    /* margin-left: 2vw; */
 }
 
 .product-thumbnail{
@@ -73,6 +73,7 @@
 }
 
 .text-span{
+    font-family: Inter, sans-serif;
     position: relative;
     font-size: 1em;
     right: 0.2vw;
@@ -109,15 +110,10 @@
 
 .button-wrap{
     display: inline-block;
-    -webkit-box-align: center;
+    height: 6vh;
+    width: 7vw;
 }
 
-.primary-button .button .cart-button{
-    padding: 12px 22px;
-}
-.primary-button .button{
-    border: 2px solid #231f1e;
-}
 .primary-button{
     position: relative;
     z-index: 0;
@@ -131,4 +127,15 @@
     border-radius: 50px;
     transition: all 200ms ease;
     text-decoration: none;
+    border: 2px solid #231f1e;
+    font-family: Inter, sans-serif;
+    color: inherit;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+.primary-button:hover{
+    color: white;
+    background-color: #003C28;
+    transition: 400ms all ease-in-out;
 }

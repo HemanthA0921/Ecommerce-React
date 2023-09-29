@@ -1,10 +1,10 @@
 import React from "react";
 import favorite from "../icons/favorite.png";
-import "../styles/ProductItemBig.css";
+import "../styles/ProductItemSmall.css";
 
-export const ProductItemBig = () => {
+export const ProductItemSmall = () => {
     return (
-        <div className="product-item">
+        <div className="product-item-s">
             <div className="product-thumbnail">
                 <img src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e8c4e54b76914b262f2448_headphone-min.png"
                     alt="product-thumbnail"
