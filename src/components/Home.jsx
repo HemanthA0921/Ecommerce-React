@@ -7,6 +7,7 @@ import { HomeBestDeals } from "./HomeBestDeals";
 import { BrandSection } from "./BrandSection";
 import { PopularProducts } from "./PopularProducts";
 import { HomeCategorySection } from "./HomeCategorySection";
+import { BestSellingProducts } from "./BestSellingProducts";
 import "../styles/Home.css";
 
 export const Home = () => {
@@ -20,6 +21,7 @@ export const Home = () => {
             <BrandSection />
             <PopularProducts />
             <HomeCategorySection />
+            <BestSellingProducts />
             <Footer />
         </div>
     );

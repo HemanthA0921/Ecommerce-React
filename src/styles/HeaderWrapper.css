@@ -21,6 +21,7 @@
     flex: 0 0 auto;
     gap: 52px;
     position: relative;
+    /* margin-left: 15%; */ /* for responsive */
 }
 
 .header-wrapper .design-component-instance-node {
