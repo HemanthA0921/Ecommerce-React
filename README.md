@@ -41,10 +41,3 @@ npx nodemon server
 Used:
 nodejs
 mongodb
-
-
-
-Github link: https://github.com/Gadgets-Of-Galaxy/GOG_WBD
-
-
-
