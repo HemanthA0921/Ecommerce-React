@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from 'react-router-dom';
 import axios from "axios";
-import "../styles/login.css";
+import "../styles/Login.css";
 
 export const SellerRegister = () => {
     const [formData, setFormData] = useState({
