@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from 'react-router-dom';
 import axios from "axios";
-import "../styles/Login.css";
+import "../styles/login.css";
 
 export const SellerRegister = () => {
     const [formData, setFormData] = useState({
@@ -15,7 +15,7 @@ export const SellerRegister = () => {
 
     useEffect(() => {
         const getCSRFToken = async () => {
-            const response = await axios.get('https://gog-backend-4fkg.onrender.com//api/getCSRFToken');
+            const response = await axios.get('https://gog-backend-4fkg.onrender.com/api/getCSRFToken');
             axios.defaults.headers.post['X-CSRF-Token'] = response.data.CSRFToken;
             console.log(response.data.CSRFToken);
         };
@@ -98,7 +98,7 @@ export const SellerRegister = () => {
         e.preventDefault();
         if (validateForm()) {
             try {
-                const response = await axios.post('https://gog-backend-4fkg.onrender.com//api/seller/register', formData);
+                const response = await axios.post('https://gog-backend-4fkg.onrender.com/api/seller/register', formData);
                 console.log(response.data);
                 navigate('/SellerLogin');
             } catch (error) {
