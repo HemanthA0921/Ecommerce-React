@@ -30,7 +30,7 @@ app.use(helmet.crossOriginResourcePolicy({ policy: 'cross-origin' }));
 app.use(express.static('public'));
 app.use(cookieParser());
 // app.use(morgan('common'));
-// app.use(morgan(':method :url :status :response-time ms'));
+
 
 morgan.token('user', (req) => {
     if (req.user) { return req.user.email; }
