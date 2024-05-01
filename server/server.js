@@ -118,7 +118,7 @@ const options = {
         },
         servers: [
             {
-                url: 'https://gog-backend-t01u.onrender.com/',
+                url: 'https://gog-backend-t01u.onrender.com',
                 description: 'Development server',
             },
         ],
