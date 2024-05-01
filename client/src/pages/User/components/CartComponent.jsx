@@ -10,7 +10,7 @@ export const CartComponent = ({ user }) => {
     useEffect(() => {
         const fetchCartItems = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/user/carts/${user._id}`);
+                const response = await axios.get(`https://gog-backend-4fkg.onrender.com//api/user/carts/${user._id}`);
                 setCartItems(response.data.cartItems || []);
                 calculateSubtotal(response.data.cartItems || []);
             } catch (error) {
@@ -25,7 +25,7 @@ export const CartComponent = ({ user }) => {
 
     const deleteFromCart = async (cartItemId) => {
         try {
-            const response = await axios.delete(`http://localhost:5000/api/user/carts/${user._id}/deleteItem/${cartItemId}`);
+            const response = await axios.delete(`https://gog-backend-4fkg.onrender.com//api/user/carts/${user._id}/deleteItem/${cartItemId}`);
             // window.alert(response.data.message);
             setCartItems(cartItems.filter(cartItem => cartItem._id !== cartItemId));
         } catch (error) {
