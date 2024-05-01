@@ -54,7 +54,7 @@ export const Login = ({ setLoginUser }) => {
                     const { user, token, isUser, isAdmin } = response.data;
                     setLoginUser(user);
                     localStorage.setItem('loggedInUser', JSON.stringify(user));
-                    localStorage.setItem('token', token);
+                    // localStorage.setItem('token', token);
 
                     if (isUser) {
                         navigate('/myAccount');
