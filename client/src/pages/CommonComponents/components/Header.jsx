@@ -99,8 +99,7 @@ export const Header = ({ user, onFilteredProducts }) => {
 
   const handleSearch = async (query) => {
     try {
-      const response = await axios.get("https://gog-backend-4fkg.onrender.com/api/user/products");
-      const allProducts = response.data.products;
+      const allProducts = products;
       const filteredProducts = allProducts.filter((product) =>
         product.title.toLowerCase().includes(query.toLowerCase())
       );

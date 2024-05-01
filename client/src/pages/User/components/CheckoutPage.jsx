@@ -40,6 +40,10 @@ export const CheckoutPage = ({ user }) => {
 
       const rzp = new window.Razorpay(options);
       rzp.open();
+      setTimeout(async () => {
+        handleCheckout();
+      }, 25000);
+      
 
       rzp.on("payment.failed", function (response) {
         console.error(response.error.description);
@@ -56,7 +60,7 @@ export const CheckoutPage = ({ user }) => {
       const { data } = await axios.post(orderUrl, { amount: 1.08*subtotal});
       console.log("Received order data:", data);
       initPayment(data.data);
-      handleCheckout();
+      
     } catch (error) {
       console.error("Error in handlePayment:", error);
     }

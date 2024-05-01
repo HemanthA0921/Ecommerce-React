@@ -51,10 +51,10 @@ export const Login = ({ setLoginUser }) => {
                 const response = await axios.post(`https://gog-backend-4fkg.onrender.com/api/user${endpoint}`, formData);
 
                 if (response.status === 200) {
-                    const { user, isUser, isAdmin } = response.data;
+                    const { user, token, isUser, isAdmin } = response.data;
                     setLoginUser(user);
                     localStorage.setItem('loggedInUser', JSON.stringify(user));
-                    // localStorage.setItem('token', token);
+                    localStorage.setItem('token', token);
 
                     if (isUser) {
                         navigate('/myAccount');

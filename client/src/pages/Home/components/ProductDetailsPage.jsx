@@ -277,7 +277,7 @@ const ProductDetailsPage = ({ user }) => {
                                     <div className="prd-dtl">
                                         <h2>About this item:</h2>
                                         <p>{ product.description }</p>
-                                        <h2 className="feauters">Feauters</h2>
+                                        <h2 className="feauters">Features</h2>
                                         <ul>
                                             <li>{ product.features1 }</li>
                                             <li>{ product.features2 }</li>
