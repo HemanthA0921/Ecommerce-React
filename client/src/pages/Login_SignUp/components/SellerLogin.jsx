@@ -58,7 +58,7 @@ export const SellerLogin = ({ setLoginSeller }) => {
         e.preventDefault();
         if (validateForm()) {
             try {
-                const response = await axios.post('https://gog-backend-4fkg.onrender.com/api/seller/login', formData);
+                const response = await axios.post('https://gog-backend-t01u.onrender.com/api/seller/login', formData);
                 const seller = response.data.seller;
                 setLoginSeller(seller);
                 localStorage.setItem('loggedInSeller', JSON.stringify(seller));

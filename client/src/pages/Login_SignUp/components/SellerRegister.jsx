@@ -94,7 +94,7 @@ export const SellerRegister = () => {
         e.preventDefault();
         if (validateForm()) {
             try {
-                const response = await axios.post('https://gog-backend-4fkg.onrender.com/api/seller/register', formData);
+                const response = await axios.post('https://gog-backend-t01u.onrender.com/api/seller/register', formData);
                 console.log(response.data);
                 navigate('/SellerLogin');
             } catch (error) {

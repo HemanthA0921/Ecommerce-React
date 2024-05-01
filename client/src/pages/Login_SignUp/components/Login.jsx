@@ -37,7 +37,7 @@ export const Login = ({ setLoginUser }) => {
                     formData.isUser = true;
                 }
 
-                const response = await axios.post(`https://gog-backend-4fkg.onrender.com/api/user${endpoint}`, formData);
+                const response = await axios.post(`https://gog-backend-t01u.onrender.com/api/user${endpoint}`, formData);
 
                 if (response.status === 200) {
                     const { user, isUser, isAdmin } = response.data;
