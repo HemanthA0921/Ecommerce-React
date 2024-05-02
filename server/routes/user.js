@@ -489,5 +489,723 @@ router.post('/reviews', async (req, res) => {
 });
 
 
+/**
+ * @swagger
+ * tags:
+ *   name: User
+ *   description: User management APIs
+ */
+
+/**
+ * @swagger
+ * /api/user/register:
+ *   post:
+ *     summary: Register a new user
+ *     tags: [User]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *     responses:
+ *       201:
+ *         description: User created successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                 token:
+ *                   type: string
+ *                   description: JWT token for the newly registered user
+ */
+
+/**
+ * @swagger
+ * /api/user/login:
+ *   post:
+ *     summary: Login as a user
+ *     tags: [User]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: User login successful
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                 user:
+ *                   $ref: '#/components/schemas/User'
+ *                 token:
+ *                   type: string
+ *                   description: JWT token for the authenticated user
+ *                 isUser:
+ *                   type: boolean
+ *                   description: Indicates if the user is a regular user
+ *                 isSeller:
+ *                   type: boolean
+ *                   description: Indicates if the user is a seller
+ *                 isAdmin:
+ *                   type: boolean
+ *                   description: Indicates if the user is an admin
+ *       401:
+ *         description: Invalid email or password
+ *       500:
+ *         description: Internal server error
+ */
+
+/**
+ * @swagger
+ * /api/user/categories:
+ *   get:
+ *     summary: Get all categories
+ *     tags: [User]
+ *     responses:
+ *       200:
+ *         description: Retrieved categories successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 categories:
+ *                   type: array
+ *                   items:
+ *                     $ref: '#/components/schemas/Category'
+ *       500:
+ *         description: Failed to fetch categories
+
+/**
+ * @swagger
+ * /api/user/products:
+ *   get:
+ *     summary: Get all products
+ *     tags: [User]
+ *     responses:
+ *       200:
+ *         description: Retrieved products successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 products:
+ *                   type: array
+ *                   items:
+ *                     $ref: '#/components/schemas/Product'
+ *       500:
+ *         description: Failed to fetch products
+ */
+
+/**
+ * @swagger
+ * /api/user/products/{id}:
+ *   get:
+ *     summary: Get a product by ID
+ *     tags: [User]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID of the product to get
+ *     responses:
+ *       200:
+ *         description: Retrieved product successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Product'
+ *       404:
+ *         description: Product not found
+ *       500:
+ *         description: Failed to fetch product
+ */
+
+
+/**
+ * @swagger
+ * /api/user/carts/addToCart:
+ *   post:
+ *     summary: Add a product to the user's shopping cart
+ *     tags: [User]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               productId:
+ *                 type: string
+ *               userId:
+ *                 type: string
+ *             required:
+ *               - productId
+ *               - userId
+ *     responses:
+ *       200:
+ *         description: Product added to cart successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                 cartId:
+ *                   type: string
+ *       404:
+ *         description: Product not found
+ *       500:
+ *         description: Internal server error
+
+/**
+ * @swagger
+ * /api/user/carts/{userId}:
+ *   get:
+ *     summary: Get the user's shopping cart items
+ *     tags: [User]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: userId
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID of the user's cart to fetch
+ *     responses:
+ *       200:
+ *         description: Retrieved user's cart items successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 cartItems:
+ *                   type: array
+ *                   items:
+ *                     $ref: '#/components/schemas/CartItem'
+ *       404:
+ *         description: Cart not found
+ *       500:
+ *         description: Internal server error
+
+/**
+ * @swagger
+ * /api/user/carts/{userId}/deleteItem/{itemId}:
+ *   delete:
+ *     summary: Delete an item from the user's shopping cart
+ *     tags: [User]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: userId
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID of the user's cart from which the item will be deleted
+ *       - in: path
+ *         name: itemId
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID of the item to be deleted from the cart
+ *     responses:
+ *       200:
+ *         description: Item deleted successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *       404:
+ *         description: Cart not found or item not found in the cart
+ *       500:
+ *         description: Internal server error
+ */
+
+/**
+ * @swagger
+ * /api/user/checkout:
+ *   post:
+ *     summary: Process checkout for user's cart items
+ *     tags: [User]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               totalQty:
+ *                 type: integer
+ *               totalCost:
+ *                 type: number
+ *               items:
+ *                 type: array
+ *                 items:
+ *                   type: object
+ *                   properties:
+ *                     productId:
+ *                       type: string
+ *                     qty:
+ *                       type: integer
+ *             required:
+ *               - totalQty
+ *               - totalCost
+ *               - items
+ *     responses:
+ *       201:
+ *         description: Checkout successful
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                 checkout:
+ *                   $ref: '#/components/schemas/Checkout'
+ *       500:
+ *         description: Internal server error
+
+/**
+ * @swagger
+ * /api/user/checkouts/{userId}:
+ *   get:
+ *     summary: Get the checkout items for a specific user
+ *     tags: [User]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: userId
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID of the user whose checkout items are to be fetched
+ *     responses:
+ *       200:
+ *         description: Retrieved user's checkout items successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 checkoutItems:
+ *                   type: array
+ *                   items:
+ *                     $ref: '#/components/schemas/CheckoutItem'
+ *       404:
+ *         description: Checkouts not found for the user
+ *       500:
+ *         description: Internal server error
+
+/**
+ * @swagger
+ * /api/user/checkouts:
+ *   get:
+ *     summary: Get all checkout items
+ *     tags: [User]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Retrieved all checkout items successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 checkouts:
+ *                   type: array
+ *                   items:
+ *                     $ref: '#/components/schemas/Checkout'
+ *       404:
+ *         description: Checkouts not found
+ *       500:
+ *         description: Internal server error
+ */
+
+/**
+ * @swagger
+ * /api/user/wishlists/{wishlistId}/removeProduct/{productId}:
+ *   delete:
+ *     summary: Remove a product from a wishlist
+ *     tags: [User]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: wishlistId
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID of the wishlist
+ *       - in: path
+ *         name: productId
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID of the product to remove from the wishlist
+ *     responses:
+ *       200:
+ *         description: Product removed from wishlist successfully
+ *       404:
+ *         description: Wishlist or product not found
+ *       500:
+ *         description: Internal server error
+
+/**
+ * @swagger
+ * /api/user/wishlists/{userId}:
+ *   get:
+ *     summary: Get wishlists of a user
+ *     tags: [User]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: userId
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID of the user
+ *     responses:
+ *       200:
+ *         description: Retrieved wishlists successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 wishlists:
+ *                   type: array
+ *                   items:
+ *                     $ref: '#/components/schemas/Wishlist'
+ *       500:
+ *         description: Internal server error
+
+/**
+ * @swagger
+ * /api/user/wishlists/create/{id}:
+ *   post:
+ *     summary: Create a new wishlist for a user
+ *     tags: [User]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID of the user
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *             required:
+ *               - name
+ *     responses:
+ *       200:
+ *         description: Wishlist created successfully
+ *       500:
+ *         description: Internal server error
+
+/**
+ * @swagger
+ * /api/user/wishlists/addProduct/{wishlistId}:
+ *   post:
+ *     summary: Add a product to a wishlist
+ *     tags: [User]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: wishlistId
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID of the wishlist
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               productId:
+ *                 type: string
+ *               imagePath:
+ *                 type: string
+ *               price:
+ *                 type: number
+ *               productCode:
+ *                 type: string
+ *               title:
+ *                 type: string
+ *             required:
+ *               - productId
+ *               - imagePath
+ *               - price
+ *               - productCode
+ *               - title
+ *     responses:
+ *       200:
+ *         description: Product added to wishlist successfully
+ *       400:
+ *         description: Product already exists in the wishlist
+ *       404:
+ *         description: Wishlist not found
+ *       500:
+ *         description: Internal server error
+ */
+
+/**
+ * @swagger
+ * /api/user/editprofile/{id}:
+ *   post:
+ *     summary: Edit user profile
+ *     tags: [User]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID of the user
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               mobileNumber:
+ *                 type: string
+ *               gender:
+ *                 type: string
+ *               dob:
+ *                 type: string
+ *               location:
+ *                 type: string
+ *             required:
+ *               - mobileNumber
+ *               - gender
+ *               - dob
+ *               - location
+ *     responses:
+ *       200:
+ *         description: User profile updated successfully
+ *       404:
+ *         description: User not found
+ *       500:
+ *         description: Internal server error
+
+/**
+ * @swagger
+ * /api/user/users/{id}:
+ *   get:
+ *     summary: Get user by ID
+ *     tags: [User]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID of the user
+ *     responses:
+ *       200:
+ *         description: Retrieved user successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/User'
+ *       500:
+ *         description: Internal server error
+
+/**
+ * @swagger
+ * /api/user/users:
+ *   get:
+ *     summary: Get all users
+ *     tags: [User]
+ *     responses:
+ *       200:
+ *         description: Retrieved users successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/User'
+ *       500:
+ *         description: Internal server error
+
+/**
+ * @swagger
+ * /api/user/contactus:
+ *   post:
+ *     summary: Contact admin
+ *     tags: [User]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *               subject:
+ *                 type: string
+ *               phone:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *               message:
+ *                 type: string
+ *             required:
+ *               - name
+ *               - subject
+ *               - phone
+ *               - email
+ *               - message
+ *     responses:
+ *       200:
+ *         description: Message sent to Admin successfully
+ *       500:
+ *         description: Internal server error
+ */
+
+/**
+ * @swagger
+ * /api/product/products/category/{categoryTitle}:
+ *   get:
+ *     summary: Get products by category
+ *     tags: [Product]
+ *     parameters:
+ *       - in: path
+ *         name: categoryTitle
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Title of the category
+ *     responses:
+ *       200:
+ *         description: Retrieved products by category successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Product'
+ *       404:
+ *         description: Category not found
+ *       500:
+ *         description: Internal server error
+
+/**
+ * @swagger
+ * /api/product/reviews:
+ *   get:
+ *     summary: Get all reviews
+ *     tags: [Product]
+ *     responses:
+ *       200:
+ *         description: Retrieved reviews successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Review'
+ *       500:
+ *         description: Internal server error
+
+/**
+ * @swagger
+ * /api/product/reviews:
+ *   post:
+ *     summary: Submit a review for a product
+ *     tags: [Product]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               productId:
+ *                 type: string
+ *               userId:
+ *                 type: string
+ *               username:
+ *                 type: string
+ *               reviewRating:
+ *                 type: number
+ *               reviewText:
+ *                 type: string
+ *               reviewTitle:
+ *                 type: string
+ *             required:
+ *               - productId
+ *               - userId
+ *               - reviewRating
+ *               - reviewText
+ *               - reviewTitle
+ *     responses:
+ *       201:
+ *         description: Review submitted successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Review'
+ *       500:
+ *         description: Internal server error
+ */
+
 
 module.exports = router;
