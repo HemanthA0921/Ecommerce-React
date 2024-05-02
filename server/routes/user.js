@@ -1122,10 +1122,10 @@ router.post('/reviews', async (req, res) => {
 
 /**
  * @swagger
- * /api/product/products/category/{categoryTitle}:
+ * /api/user/products/category/{categoryTitle}:
  *   get:
  *     summary: Get products by category
- *     tags: [Product]
+ *     tags: [User]
  *     parameters:
  *       - in: path
  *         name: categoryTitle
@@ -1149,10 +1149,10 @@ router.post('/reviews', async (req, res) => {
 
 /**
  * @swagger
- * /api/product/reviews:
+ * /api/user/reviews:
  *   get:
  *     summary: Get all reviews
- *     tags: [Product]
+ *     tags: [User]
  *     responses:
  *       200:
  *         description: Retrieved reviews successfully
@@ -1167,10 +1167,10 @@ router.post('/reviews', async (req, res) => {
 
 /**
  * @swagger
- * /api/product/reviews:
+ * /api/user/reviews:
  *   post:
  *     summary: Submit a review for a product
- *     tags: [Product]
+ *     tags: [User]
  *     requestBody:
  *       required: true
  *       content:
