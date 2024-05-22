@@ -1,43 +1,81 @@
-# GOG
-# E-commerce Gadgets of Galaxy Demo
+# GOG - Gadgets of Galaxy
+# E-commerce Project using MERN Stack
 
-This is an application that demonstrates an E-commerce website using the nodejs. The application loads 
-products from MongoDB database and displays them. The loading page directly takes to home page.
-We have three types of users.  
-Users can register and login through gmail, buy products and can add reviews. Click on any product to get more information including pricing. Users can select items and 
-add them to their shopping cart and wishlist.
-Sellers can add products, check the reviews and manage his dashboard.
-Admin can approve or revoke sellers and can give reply to mesaages of users
+Welcome to our E-commerce project built using the MERN stack (MongoDB, Express, React, Node.js). This README will guide you through the project structure, setup, and features.
 
-## Import Data
-We have included a DB dump file in this repo. Import them to your mongodatabase and connect the string to your code.
+## Table of Contents
+- [Introduction](#introduction)
+- [Deployment Links](#deployment-links)
+- [How to Run](#how-to-run)
+- [Users](#users)
+- [Features](#features)
 
-## Getting Started
-To get started  you can simply clone this `GOG` repository and install the dependencies.
+## Introduction
+This E-commerce application provides a robust platform for users to buy and sell products online, with distinct roles for buyers, sellers, and administrators.
 
-Clone the `GOG` repository using git:
+## Deployment Links
+- Frontend: `[https://gogfrontend.vercel.app](https://gogfrontend.vercel.app)`
+- Backend: `[https://gog-backend-t01u.onrender.com](https://gog-backend-t01u.onrender.com)`
+- API DOCS: `[https://gog-backend-t01u.onrender.com/api-docs](https://gog-backend-t01u.onrender.com/api-docs)`
 
+## How to Run
+To get started you can simply clone this `GOG` repository and install the dependencies.
+1. Clone the `Ecommerce-React` repository using git:
 ```bash
-git clone https://github.com/Gadgets-Of-Galaxy/GOG_WBD
-
-cd GOG
+git clone https://github.com/HemanthA0921/Ecommerce-React.git
 ```
+2. Open your terminal and navigate to the cloned directory.
 
-Install dependencies with this command:
+3. Install Node.js modules for both the client and server:
 ```bash
+cd client
 npm install
 ```
+```bash
+cd server
+npm install
+```
+4. Environment Variables
 
-Change the connection string(mongo db) with your personal one and add the products data into it according to schema given in models.
-
-Run the application(for client) with this command:
+5. Run the application(for client) with this command:
 ```bash
 npm run dev
 ```
-Run the application(for server) with this command:
+6. Run the application(for server) with this command:
 ```bash
 npx nodemon server
 ```
-Used:
-nodejs
-mongodb
+
+7. Access the website at http://localhost:5173
+
+## Users
+GOG 
+- Buyer
+- Seller
+- Admin
+
+## Features
+### Common Features
+Anyone who access this website can see the available products
+Can see the product's descriptions
+They can see reviews and ratings for the products
+Can see the categories and brands available in our website
+
+## Admin Functionalities
+Can Access Admin Dashboard to see the analytics of sales and top selling products
+Manage the sellers which include access control i.e, Approve or block sellers
+Reply for customer querries
+Can see all the products available and user details
+
+### User Functionalities
+Implemented authenication system using jwt tokens
+Authorized and authenticated users can see their dashboards, edit the details.
+They can Add reviews and ratings for the products
+In dashboards they can have details of their orders, faviorite items and cart items.
+They can add products to wishlist, cart and can proceed to checkout and payment(razorpay test mode)
+
+## Seller Functionalities
+After seccessfully approved by the admin seller can do following fuctions:
+Add products to the website
+Can access their dashboards to see the sales data and analyze the products performance.
+They can see the reviews of their products.
