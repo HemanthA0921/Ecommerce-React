@@ -35,18 +35,17 @@ npm install
 cd server
 npm install
 ```
-4. Environment Variables
 
-5. Run the application`(for client)` with this command:
+4. Run the application`(for client)` with this command:
 ```bash
 npm run dev
 ```
-6. Run the application`(for server)` with this command:
+5. Run the application`(for server)` with this command:
 ```bash
 npx nodemon server
 ```
 
-7. Access the website at http://localhost:5173
+6. Access the website at http://localhost:5173
 
 ## Users
 - Buyer
@@ -55,26 +54,26 @@ npx nodemon server
 
 ## Features
 ### Common Features
-Anyone who access this website can see the available products
-Can see the product's descriptions
-They can see reviews and ratings for the products
-Can see the categories and brands available in our website
+- Anyone who access this website can see the available products
+- Can see the product's descriptions
+- They can see reviews and ratings for the products
+- Can see the categories and brands available in our website
 
 ## Admin Functionalities
-Can Access Admin Dashboard to see the analytics of sales and top selling products
-Manage the sellers which include access control i.e, Approve or block sellers
-Reply for customer querries
-Can see all the products available and user details
+- Can Access Admin Dashboard to see the analytics of sales and top selling products
+- Manage the sellers which include access control i.e, Approve or block sellers
+- Reply for customer querries
+- Can see all the products available and user details
 
 ### User Functionalities
-Implemented authenication system using jwt tokens
-Authorized and authenticated users can see their dashboards, edit the details.
-They can Add reviews and ratings for the products
-In dashboards they can have details of their orders, faviorite items and cart items.
-They can add products to wishlist, cart and can proceed to checkout and payment(razorpay test mode)
+- Implemented authenication system using jwt tokens
+- Authorized and authenticated users can see their dashboards, edit the details.
+- They can Add reviews and ratings for the products
+- In dashboards they can have details of their orders, faviorite items and cart items.
+- They can add products to wishlist, cart and can proceed to checkout and payment(razorpay test mode)
 
 ## Seller Functionalities
-After seccessfully approved by the admin seller can do following fuctions:
-Add products to the website
-Can access their dashboards to see the sales data and analyze the products performance.
-They can see the reviews of their products.
+- After seccessfully approved by the admin seller can do following fuctions:
+- Add products to the website
+- Can access their dashboards to see the sales data and analyze the products performance.
+- They can see the reviews of their products.
