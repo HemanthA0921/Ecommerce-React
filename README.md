@@ -14,9 +14,9 @@ Welcome to our E-commerce project built using the MERN stack (MongoDB, Express, 
 This E-commerce application provides a robust platform for users to buy and sell products online, with distinct roles for buyers, sellers, and administrators.
 
 ## Deployment Links
-- Frontend: `[https://gogfrontend.vercel.app](https://gogfrontend.vercel.app)`
-- Backend: `[https://gog-backend-t01u.onrender.com](https://gog-backend-t01u.onrender.com)`
-- API DOCS: `[https://gog-backend-t01u.onrender.com/api-docs](https://gog-backend-t01u.onrender.com/api-docs)`
+- Frontend: https://gogfrontend.vercel.app
+- Backend: https://gog-backend-t01u.onrender.com
+- API DOCS: https://gog-backend-t01u.onrender.com/api-docs
 
 ## How to Run
 To get started you can simply clone this `GOG` repository and install the dependencies.
@@ -26,7 +26,7 @@ git clone https://github.com/HemanthA0921/Ecommerce-React.git
 ```
 2. Open your terminal and navigate to the cloned directory.
 
-3. Install Node.js modules for both the client and server:
+3. Install `node modules` for both the client and server:
 ```bash
 cd client
 npm install
@@ -37,11 +37,11 @@ npm install
 ```
 4. Environment Variables
 
-5. Run the application(for client) with this command:
+5. Run the application`(for client)` with this command:
 ```bash
 npm run dev
 ```
-6. Run the application(for server) with this command:
+6. Run the application`(for server)` with this command:
 ```bash
 npx nodemon server
 ```
@@ -49,7 +49,6 @@ npx nodemon server
 7. Access the website at http://localhost:5173
 
 ## Users
-GOG 
 - Buyer
 - Seller
 - Admin
