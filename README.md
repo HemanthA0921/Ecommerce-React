@@ -14,7 +14,7 @@ Welcome to our E-commerce project built using the MERN stack (MongoDB, Express, 
 This E-commerce application provides a robust platform for users to buy and sell products online, with distinct roles for buyers, sellers, and administrators.
 
 ## Deployment Links
-- Frontend: https://gogfrontend.vercel.app
+- Frontend: https://gadgetsofgalaxy.vercel.app/
 - Backend: https://gog-backend-t01u.onrender.com
 - API DOCS: https://gog-backend-t01u.onrender.com/api-docs
 
