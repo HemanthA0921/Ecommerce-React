@@ -57,7 +57,7 @@ export const CheckoutPage = ({ user }) => {
     try {
       console.log("Trying to initiate payment...");
       const orderUrl = "https://gog-backend-t01u.onrender.com/api/payment/orders";
-      const { data } = await axios.post(orderUrl, { amount: 1.08*subtotal});
+      const { data } = await axios.post(orderUrl, { amount: Math.round(1.08 * subtotal * 100) });
       console.log("Received order data:", data);
       initPayment(data.data);
       
