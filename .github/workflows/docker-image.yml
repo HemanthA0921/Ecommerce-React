@@ -22,6 +22,5 @@ jobs:
           docker compose build
           docker compose push
 
-      - name: Deploy
-        run: |
-          docker compose up -d
+      - name: Trigger Render Deploy
+        run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
